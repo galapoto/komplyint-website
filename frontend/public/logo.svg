@@ -1,39 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 120" fill="none">
-  <!-- Glow effect -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 600"
+     width="600" height="600">
+
   <defs>
-    <radialGradient id="glow" cx="50%" cy="40%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.6"/>
-      <stop offset="50%" stop-color="#10b981" stop-opacity="0.4"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-    </radialGradient>
+    <linearGradient id="komplyGradientA"
+      x1="220" y1="80"
+      x2="420" y2="420"
+      gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3A4A63"/>
+      <stop offset="45%" stop-color="#4E7F7A"/>
+      <stop offset="100%" stop-color="#6FD26F"/>
+    </linearGradient>
   </defs>
-  
-  <!-- Glow circle -->
-  <circle cx="150" cy="45" r="35" fill="url(#glow)"/>
-  
-  <!-- Shield shape -->
-  <path d="M 120 15 L 150 10 L 180 15 L 180 65 Q 180 75 175 80 Q 170 85 165 88 Q 160 91 155 93 Q 150 95 145 93 Q 140 91 135 88 Q 130 85 125 80 Q 120 75 120 65 Z" 
-        fill="none" 
-        stroke="#1e293b" 
-        stroke-width="3"/>
-  
-  <!-- Geometric pattern inside shield -->
-  <path d="M 135 25 L 150 20 L 165 25 L 165 50 L 150 65 L 135 50 Z" 
-        fill="none" 
-        stroke="#1e293b" 
-        stroke-width="2.5"/>
-  <line x1="150" y1="20" x2="150" y2="65" stroke="#1e293b" stroke-width="2"/>
-  <line x1="135" y1="42" x2="165" y2="42" stroke="#1e293b" stroke-width="2"/>
-  
-  <!-- Text: KOMPLYINT OY -->
-  <text x="150" y="105" 
-        font-family="system-ui, -apple-system, sans-serif" 
-        font-size="20" 
-        font-weight="600" 
-        letter-spacing="0.15em" 
-        text-anchor="middle"
-        fill="white"
-        stroke="#1e293b"
-        stroke-width="0.5"
-        paint-order="stroke fill">KOMPLYINT OY</text>
+
+  <!-- Shield body -->
+  <path
+    d="
+      M210 90
+      L390 90
+      L390 300
+      C390 350 335 395 300 415
+      C265 395 210 350 210 300
+      Z
+    "
+    fill="none"
+    stroke="url(#komplyGradientA)"
+    stroke-width="20"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+
+  <!-- K cut geometry -->
+  <path
+    d="
+      M255 145
+      L255 285
+      M255 220
+      L325 150
+      M255 220
+      L345 305
+    "
+    stroke="url(#komplyGradientA)"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Right structured bars -->
+  <path
+    d="
+      M320 165 L370 165
+      M310 205 L370 205
+      M300 245 L360 245
+    "
+    stroke="url(#komplyGradientA)"
+    stroke-width="18"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Lower crossing stroke -->
+  <path
+    d="M240 265 L360 390"
+    stroke="url(#komplyGradientA)"
+    stroke-width="18"
+    stroke-linecap="round"
+    fill="none"
+  />
+
 </svg>

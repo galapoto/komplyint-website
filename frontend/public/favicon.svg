@@ -1,18 +1,72 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
-  <!-- Simplified shield logo for favicon -->
+<svg xmlns="http://www.w3.org/2000/svg"
+     viewBox="0 0 600 600"
+     width="600" height="600">
+
   <defs>
-    <radialGradient id="faviconGlow" cx="50%" cy="40%">
-      <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.5"/>
-      <stop offset="100%" stop-color="#10b981" stop-opacity="0.3"/>
-    </radialGradient>
+    <linearGradient id="komplyGradientA"
+      x1="220" y1="80"
+      x2="420" y2="420"
+      gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#3A4A63"/>
+      <stop offset="45%" stop-color="#4E7F7A"/>
+      <stop offset="100%" stop-color="#6FD26F"/>
+    </linearGradient>
   </defs>
-  <circle cx="32" cy="24" r="20" fill="url(#faviconGlow)"/>
-  <path d="M 20 8 L 32 4 L 44 8 L 44 36 Q 44 42 40 45 Q 36 48 32 50 Q 28 48 24 45 Q 20 42 20 36 Z" 
-        fill="none" 
-        stroke="#1e293b" 
-        stroke-width="2"/>
-  <path d="M 24 16 L 32 12 L 40 16 L 40 28 L 32 36 L 24 28 Z" 
-        fill="none" 
-        stroke="#1e293b" 
-        stroke-width="1.5"/>
+
+  <!-- Shield body -->
+  <path
+    d="
+      M210 90
+      L390 90
+      L390 300
+      C390 350 335 395 300 415
+      C265 395 210 350 210 300
+      Z
+    "
+    fill="none"
+    stroke="url(#komplyGradientA)"
+    stroke-width="20"
+    stroke-linejoin="round"
+    stroke-linecap="round"
+  />
+
+  <!-- K cut geometry -->
+  <path
+    d="
+      M255 145
+      L255 285
+      M255 220
+      L325 150
+      M255 220
+      L345 305
+    "
+    stroke="url(#komplyGradientA)"
+    stroke-width="20"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <!-- Right structured bars -->
+  <path
+    d="
+      M320 165 L370 165
+      M310 205 L370 205
+      M300 245 L360 245
+    "
+    stroke="url(#komplyGradientA)"
+    stroke-width="18"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Lower crossing stroke -->
+  <path
+    d="M240 265 L360 390"
+    stroke="url(#komplyGradientA)"
+    stroke-width="18"
+    stroke-linecap="round"
+    fill="none"
+  />
+
 </svg>

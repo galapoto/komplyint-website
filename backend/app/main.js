@@ -4,11 +4,34 @@
  * Not related to Todiscope or any other platform.
  */
 
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
+const nodemailer = require('nodemailer');
 
 const app = express();
 const PORT = 8600;
+
+// Email transporter configuration (Google Workspace SMTP)
+const createTransporter = () => {
+  const user = process.env.SMTP_USER;
+  const password = process.env.SMTP_PASSWORD;
+
+  if (!user || !password) {
+    console.error('SMTP credentials not configured. Email sending will fail.');
+    return null;
+  }
+
+  return nodemailer.createTransport({
+    host: 'smtp.gmail.com',
+    port: 587,
+    secure: false,
+    auth: {
+      user: user,
+      pass: password
+    }
+  });
+};
 
 // CORS - allow only the frontend
 const corsOptions = {
@@ -32,54 +55,82 @@ function isValidEmail(email) {
 }
 
 // POST /contact endpoint
-app.post('/contact', (req, res) => {
+app.post('/contact', async (req, res) => {
   try {
-    const { email, message } = req.body;
+    const { name, email, message } = req.body;
 
     // Validate email
     if (!email || typeof email !== 'string') {
       return res.status(400).json({
-        error: 'Email is required and must be a string'
+        ok: false
       });
     }
 
-    if (!isValidEmail(email)) {
+    const trimmedEmail = email.trim();
+    if (!isValidEmail(trimmedEmail)) {
       return res.status(400).json({
-        error: 'Invalid email format'
+        ok: false
       });
     }
 
     // Validate message
     if (!message || typeof message !== 'string') {
       return res.status(400).json({
-        error: 'Message is required and must be a string'
+        ok: false
       });
     }
 
     const trimmedMessage = message.trim();
     if (trimmedMessage.length === 0) {
       return res.status(400).json({
-        error: 'Message cannot be empty'
+        ok: false
       });
     }
 
-    // Log the contact request (in production, this would send an email)
-    console.log('--- Contact Request ---');
-    console.log(`Email: ${email}`);
-    console.log(`Message: ${trimmedMessage}`);
-    console.log(`Timestamp: ${new Date().toISOString()}`);
-    console.log('--- End Contact Request ---');
+    // Sanitize name (optional)
+    const trimmedName = name && typeof name === 'string' ? name.trim() : null;
+
+    // Send email
+    const transporter = createTransporter();
+    if (!transporter) {
+      console.error(`${new Date().toISOString()} Contact request failed: SMTP not configured`);
+      return res.status(500).json({
+        ok: false
+      });
+    }
+
+    const emailBody = `---
+New website contact message
+
+Name: ${trimmedName || '-'}
+Email: ${trimmedEmail}
+
+Message:
+${trimmedMessage}
+
+Received at: ${new Date().toISOString()}
+Website origin: KOMPLYINT OY website
+---`;
+
+    await transporter.sendMail({
+      from: 'KOMPLYINT OY <komplyint@komplyint.com>',
+      to: 'komplyint@komplyint.com',
+      replyTo: trimmedEmail,
+      subject: 'Website contact message',
+      text: emailBody
+    });
+
+    console.log(`${new Date().toISOString()} Contact request sent successfully`);
 
     // Return success response
     res.status(200).json({
-      success: true,
-      message: 'Contact request received. We will respond to your inquiry.'
+      ok: true
     });
 
   } catch (error) {
-    console.error('Error processing contact request:', error);
+    console.error(`${new Date().toISOString()} Contact request failed: ${error.message}`);
     res.status(500).json({
-      error: 'An error occurred processing your request'
+      ok: false
     });
   }
 });

@@ -16,6 +16,16 @@
         <a href="#" class="logo">
           <img src="/logo.svg" alt="KOMPLYINT OY" class="logo-img">
         </a>
+        <div class="header-controls">
+          <button class="lang-toggle" id="langToggle" aria-label="Switch language">
+            <span class="lang-en">EN</span>
+            <span class="lang-separator">|</span>
+            <span class="lang-fi">FI</span>
+          </button>
+          <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+          </button>
+        </div>
       </div>
     </div>
   </header>
@@ -24,15 +34,15 @@
   <section class="hero bg-green">
     <div class="container">
       <div class="hero-content">
-        <h1 class="hero-title">KOMPLYINT OY</h1>
-        <h2 class="hero-subtitle">Compliance readiness, clearly and responsibly.</h2>
-        <p class="hero-text">
+        <h1 class="hero-title" data-i18n="hero.title">KOMPLYINT OY</h1>
+        <h2 class="hero-subtitle" data-i18n="hero.subtitle">Compliance readiness, clearly and responsibly.</h2>
+        <p class="hero-text" data-i18n="hero.text">
           We help organizations prepare for regulatory and compliance-related work by improving internal clarity, structure, and understanding — before engaging auditors, regulators, or legal advisors.
         </p>
-        <blockquote class="hero-disclaimer">
+        <blockquote class="hero-disclaimer" data-i18n="hero.disclaimer">
           We do not certify, approve, or provide legal or regulatory decisions.
         </blockquote>
-        <a href="#contact" class="btn-contact">Contact us</a>
+        <a href="#contact" class="btn-contact" data-i18n="hero.contactBtn">Contact us</a>
       </div>
     </div>
   </section>
@@ -40,34 +50,34 @@
   <!-- What We Do Section -->
   <section class="services bg-blue">
     <div class="container">
-      <h2 class="section-title">What we help with</h2>
+      <h2 class="section-title" data-i18n="services.title">What we help with</h2>
       <div class="cards">
         <div class="card bg-green-card">
-          <h3 class="card-title">Compliance readiness</h3>
-          <p class="card-text">
+          <h3 class="card-title" data-i18n="services.card1.title">Compliance readiness</h3>
+          <p class="card-text" data-i18n="services.card1.text">
             We support organizations in understanding their current situation and preparing internally for upcoming compliance requirements.
           </p>
         </div>
         <div class="card bg-blue-card">
-          <h3 class="card-title">Documentation and structure preparation</h3>
-          <p class="card-text">
+          <h3 class="card-title" data-i18n="services.card2.title">Documentation and structure preparation</h3>
+          <p class="card-text" data-i18n="services.card2.text">
             We assist with organizing internal documentation, records, and processes so they are clearer, more consistent, and easier to review by external parties.
           </p>
         </div>
         <div class="card bg-green-card">
-          <h3 class="card-title">Risk and gap awareness</h3>
-          <p class="card-text">
+          <h3 class="card-title" data-i18n="services.card3.title">Risk and gap awareness</h3>
+          <p class="card-text" data-i18n="services.card3.text">
             We help identify areas that may require attention before formal audits, regulatory reviews, or legal assessments.
           </p>
         </div>
         <div class="card bg-blue-card">
-          <h3 class="card-title">Process orientation</h3>
-          <p class="card-text">
+          <h3 class="card-title" data-i18n="services.card4.title">Process orientation</h3>
+          <p class="card-text" data-i18n="services.card4.text">
             We help teams understand compliance-related workflows and internal responsibilities, so preparation work is more effective and less disruptive.
           </p>
         </div>
       </div>
-      <blockquote class="services-disclaimer">
+      <blockquote class="services-disclaimer" data-i18n-html="services.disclaimer">
         KOMPLYINT OY does not provide legal advice, certification, or regulatory approval.<br>
         Final compliance decisions always rest with authorities, auditors, or legal professionals.
       </blockquote>
@@ -77,12 +87,12 @@
   <!-- How We Work Section -->
   <section class="approach bg-green">
     <div class="container">
-      <h2 class="section-title">Our approach</h2>
+      <h2 class="section-title" data-i18n="approach.title">Our approach</h2>
       <ul class="approach-list">
-        <li>We focus on preparation, clarity, and structure</li>
-        <li>We work alongside internal teams</li>
-        <li>We stop before legal interpretation or regulatory judgment</li>
-        <li>We help organizations prepare for processes they may already be planning</li>
+        <li data-i18n="approach.item1">We focus on preparation, clarity, and structure</li>
+        <li data-i18n="approach.item2">We work alongside internal teams</li>
+        <li data-i18n="approach.item3">We stop before legal interpretation or regulatory judgment</li>
+        <li data-i18n="approach.item4">We help organizations prepare for processes they may already be planning</li>
       </ul>
     </div>
   </section>
@@ -90,12 +100,12 @@
   <!-- Who We Are Section -->
   <section class="about bg-blue">
     <div class="container">
-      <h2 class="section-title">About KOMPLYINT OY</h2>
+      <h2 class="section-title" data-i18n="about.title">About KOMPLYINT OY</h2>
       <div class="about-content">
-        <p class="about-text">
+        <p class="about-text" data-i18n="about.text1">
           KOMPLYINT OY is an independent company focused on helping organizations prepare internally for compliance-related work.
         </p>
-        <p class="about-text">
+        <p class="about-text" data-i18n-html="about.text2">
           We are not regulators, auditors, or authorities.<br>
           Our role is to support readiness and understanding — not to replace formal oversight.
         </p>
@@ -106,12 +116,25 @@
   <!-- Contact Section -->
   <section id="contact" class="contact bg-green">
     <div class="container">
-      <h2 class="section-title">Get in touch</h2>
+      <h2 class="section-title" data-i18n="contact.title">Get in touch</h2>
       <div class="contact-content">
-        <p class="contact-email">
-          Email: <a href="mailto:komplyint@komplying.com" class="email-link">komplyint@komplying.com</a>
-        </p>
-        <blockquote class="contact-disclaimer">
+        <form id="contactForm" class="contact-form">
+          <div class="form-group">
+            <label for="contactName" data-i18n="contact.form.name">Name (optional)</label>
+            <input type="text" id="contactName" name="name" class="form-input" data-i18n-placeholder="contact.form.namePlaceholder">
+          </div>
+          <div class="form-group">
+            <label for="contactEmail" data-i18n="contact.form.email">Email <span class="required">*</span></label>
+            <input type="email" id="contactEmail" name="email" class="form-input" required data-i18n-placeholder="contact.form.emailPlaceholder">
+          </div>
+          <div class="form-group">
+            <label for="contactMessage" data-i18n="contact.form.message">Message <span class="required">*</span></label>
+            <textarea id="contactMessage" name="message" class="form-textarea" rows="6" required data-i18n-placeholder="contact.form.messagePlaceholder"></textarea>
+          </div>
+          <div id="formMessage" class="form-message" style="display: none;"></div>
+          <button type="submit" class="btn-submit" data-i18n="contact.form.submit">Send message</button>
+        </form>
+        <blockquote class="contact-disclaimer" data-i18n="contact.disclaimer">
           We respond only to inquiries related to compliance preparation and internal readiness.
         </blockquote>
       </div>
@@ -121,15 +144,16 @@
   <!-- Footer -->
   <footer class="footer">
     <div class="container">
-      <p class="footer-text">
+      <p class="footer-text" data-i18n-html="footer.text1">
         KOMPLYINT OY provides informational and preparatory support only.<br>
         We do not offer legal advice, certification, regulatory approval, or official compliance decisions.
       </p>
-      <p class="footer-text footer-independence">
+      <p class="footer-text footer-independence" data-i18n-html="footer.text2">
         This website and its services are <strong>independent from Todiscope and any related platforms</strong>.
       </p>
     </div>
   </footer>
+
+  <script type="module" src="/app.js"></script>
 </body>
 </html>
-
