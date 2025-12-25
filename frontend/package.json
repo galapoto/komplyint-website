@@ -1,0 +1,13 @@
+{
+  "name": "komplyint-website",
+  "version": "1.0.0",
+  "description": "KOMPLYINT OY public website",
+  "scripts": {
+    "dev": "node server.js",
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
+

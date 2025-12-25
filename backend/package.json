@@ -1,0 +1,15 @@
+{
+  "name": "komplyint-website-backend",
+  "version": "1.0.0",
+  "description": "Minimal backend for KOMPLYINT OY website",
+  "main": "app/main.js",
+  "scripts": {
+    "dev": "node app/main.js",
+    "start": "node app/main.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "cors": "^2.8.5"
+  }
+}
+
