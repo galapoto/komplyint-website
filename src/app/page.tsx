@@ -38,10 +38,10 @@ export default function Home() {
             </a>
             <button
               onClick={handleLangToggle}
-              className={`lang-toggle ${lang === 'fi' ? 'active' : ''}`}
+              className={`lang-toggle ${currentLang === 'fi' ? 'active' : ''}`}
               aria-label="Switch language"
             >
-              <span>{lang.toUpperCase()}</span>
+              <span>{currentLang.toUpperCase()}</span>
             </button>
           </div>
         </div>
