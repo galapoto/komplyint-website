@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'KOMPLYINT OY',
+  title: 'Komplyint Oy',
   description: 'KOMPLYINT OY - Compliance readiness support for organizations',
   icons: {
     icon: '/favicon.svg',
