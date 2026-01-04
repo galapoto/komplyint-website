@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'KOMPLYINT OY — Compliance readiness, clearly and responsibly',
+  title: 'KOMPLYINT OY',
   description: 'KOMPLYINT OY - Compliance readiness support for organizations',
+  icons: {
+    icon: '/favicon.svg',
+  },
 }
 
 export default function RootLayout({
@@ -17,4 +20,3 @@ export default function RootLayout({
     </html>
   )
 }
-
