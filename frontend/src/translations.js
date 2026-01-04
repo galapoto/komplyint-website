@@ -4,7 +4,7 @@ export const translations = {
     hero: {
       title: "KOMPLYINT OY",
       subtitle: "Compliance readiness, clearly and responsibly.",
-      text: "We help organizations prepare for regulatory and compliance-related work by improving internal clarity, structure, and understanding — before engaging auditors, regulators, or legal advisors.",
+      text: "We help organizations prepare for regulatory and compliance-related work by improving internal clarity, structure, and understanding — before engaging with auditors, regulators, or legal advisors.",
       disclaimer: "We do not certify, approve, or provide legal or regulatory decisions.",
       contactBtn: "Contact us"
     },
@@ -23,10 +23,16 @@ export const translations = {
         text: "We help identify areas that may require attention before formal audits, regulatory reviews, or legal assessments."
       },
       card4: {
-        title: "Process orientation",
+        title: "Process clarity",
         text: "We help teams understand compliance-related workflows and internal responsibilities, so preparation work is more effective and less disruptive."
       },
       disclaimer: "KOMPLYINT OY does not provide legal advice, certification, or regulatory approval.<br>Final compliance decisions always rest with authorities, auditors, or legal professionals."
+    },
+    howwework: {
+      title: "How we typically work",
+      item1: "We start with internal understanding and documentation",
+      item2: "We focus on clarity before external engagement",
+      item3: "We stop before legal or regulatory interpretation"
     },
     approach: {
       title: "Our approach",
@@ -66,8 +72,8 @@ export const translations = {
   fi: {
     hero: {
       title: "KOMPLYINT OY",
-      subtitle: "Vaatimustenmukaisuusvalmennus, selkeästi ja vastuullisesti.",
-      text: "Autamme organisaatioita valmistautumaan sääntely- ja vaatimustenmukaisuustyöhön parantamalla sisäistä selkeyttä, rakennetta ja ymmärrystä — ennen kuin otetaan yhteyttä tarkastajiin, sääntelijöihin tai oikeudellisiin neuvonantajiin.",
+      subtitle: "Vaatimustenmukaisuusvalmistautuminen, selkeästi ja vastuullisesti.",
+      text: "Autamme organisaatioita valmistautumaan sääntely- ja vaatimustenmukaisuustyöhön parantamalla sisäistä selkeyttä, rakennetta ja ymmärrystä — ennen yhteydenottoa tarkastajiin, sääntelijöihin tai oikeudellisiin neuvonantajiin.",
       disclaimer: "Emme sertifioi, hyväksy tai anna oikeudellisia tai sääntelypäätöksiä.",
       contactBtn: "Ota yhteyttä"
     },
@@ -83,13 +89,19 @@ export const translations = {
       },
       card3: {
         title: "Riskien ja aukkojen tietoisuus",
-        text: "Autamme tunnistamaan alueet, jotka voivat vaatia huomiota ennen muodollisia tarkastuksia, sääntelykatselmointeja tai oikeudellisia arviointeja."
+        text: "Autamme tunnistamaan alueita, jotka voivat vaatia huomiota ennen muodollisia tarkastuksia, sääntelykatselmointeja tai oikeudellisia arviointeja."
       },
       card4: {
         title: "Prosessiohjeistus",
         text: "Autamme tiimejä ymmärtämään vaatimustenmukaisuuteen liittyviä työnkulkuja ja sisäisiä vastuita, jotta valmistautumistyö on tehokkaampaa ja vähemmän häiritsevää."
       },
-      disclaimer: "KOMPLYINT OY ei anna oikeudellista neuvontaa, sertifiointia tai sääntelyhyväksyntää.<br>Lopulliset vaatimustenmukaisuus päätökset kuuluvat aina viranomaisille, tarkastajille tai oikeudellisille ammattilaisille."
+      disclaimer: "KOMPLYINT OY ei anna oikeudellista neuvontaa, sertifiointia tai sääntelyhyväksyntää.<br>Lopulliset vaatimustenmukaisuuspäätökset kuuluvat aina viranomaisille, tarkastajille tai oikeudellisille ammattilaisille."
+    },
+    howwework: {
+      title: "Miten tyypillisesti työskentelemme",
+      item1: "Aloitamme sisäisellä ymmärryksellä ja dokumentaatiolla",
+      item2: "Keskitymme selkeyteen ennen ulkoista yhteydenottoa",
+      item3: "Pysähdymme ennen oikeudellista tai sääntelytulkintaa"
     },
     approach: {
       title: "Lähestymistapamme",
@@ -107,7 +119,7 @@ export const translations = {
       title: "Ota yhteyttä",
       email: "Sähköposti:",
       emailLink: "komplyint@komplyint.com",
-      disclaimer: "Vastaamme vain vaatimustenmukaisuusvalmistautumiseen ja sisäiseen valmiuteen liittyviin kyselyihin.",
+      disclaimer: "Vastaamme vain vaatimustenmukaisuusvalmistautumiseen ja sisäiseen valmiuteen liittyviin yhteydenottoihin.",
       form: {
         name: "Nimi (valinnainen)",
         namePlaceholder: "Nimesi",
