@@ -5,6 +5,7 @@ import { translations, type Language } from '@/lib/translations'
 
 export default function Home() {
   const [lang, setLang] = useState<Language>('en')
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -13,7 +14,22 @@ export default function Home() {
     if (saved === 'en' || saved === 'fi') {
       setLang(saved)
     }
+    
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
+    if (savedTheme === 'dark' || savedTheme === 'light') {
+      setTheme(savedTheme)
+    } else {
+      // Check system preference
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      setTheme(prefersDark ? 'dark' : 'light')
+    }
   }, [])
+
+  useEffect(() => {
+    if (mounted) {
+      document.documentElement.classList.toggle('dark', theme === 'dark')
+    }
+  }, [theme, mounted])
 
   // Always use a valid language (default to 'en' during SSR)
   const currentLang: Language = mounted ? lang : 'en'
@@ -27,6 +43,14 @@ export default function Home() {
     }
   }
 
+  const handleThemeToggle = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+    if (mounted) {
+      localStorage.setItem('theme', newTheme)
+    }
+  }
+
   return (
     <>
       {/* Header */}
@@ -36,13 +60,22 @@ export default function Home() {
             <a href="#" className="logo">
               <img src="/logo.svg" alt="KOMPLYINT OY" className="logo-img" />
             </a>
-            <button
-              onClick={handleLangToggle}
-              className={`lang-toggle ${currentLang === 'fi' ? 'active' : ''}`}
-              aria-label="Switch language"
-            >
-              <span>{currentLang.toUpperCase()}</span>
-            </button>
+            <div className="header-controls">
+              <button
+                onClick={handleLangToggle}
+                className={`lang-toggle ${currentLang === 'fi' ? 'active' : ''}`}
+                aria-label="Switch language"
+              >
+                <span>{currentLang.toUpperCase()}</span>
+              </button>
+              <button
+                onClick={handleThemeToggle}
+                className="theme-toggle"
+                aria-label="Toggle theme"
+              >
+                <span className="theme-icon">{theme === 'dark' ? '☀️' : '🌙'}</span>
+              </button>
+            </div>
           </div>
         </div>
       </header>

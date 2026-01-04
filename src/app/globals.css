@@ -27,6 +27,32 @@
   --border-color: var(--slate-200);
 }
 
+/* Dark mode colors */
+.dark {
+  --green-50: #0a2e1a;
+  --green-100: #134e2a;
+  --green-800: #86efac;
+  --green-900: #bbf7d0;
+  --blue-50: #1e3a5f;
+  --blue-100: #1e4a7a;
+  --blue-800: #93c5fd;
+  --blue-900: #bfdbfe;
+  --slate-50: #1e293b;
+  --slate-100: #334155;
+  --slate-200: #475569;
+  --slate-600: #94a3b8;
+  --slate-700: #cbd5e1;
+  --slate-800: #e2e8f0;
+  --slate-900: #f1f5f9;
+  --blue-600: #60a5fa;
+  --blue-700: #3b82f6;
+  --bg-primary: #0f172a;
+  --bg-secondary: #1e293b;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --border-color: #334155;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -65,7 +91,14 @@ body {
   width: auto;
 }
 
-.lang-toggle {
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-toggle,
+.theme-toggle {
   background: transparent;
   border: 1px solid var(--border-color);
   padding: 8px 16px;
@@ -79,13 +112,18 @@ body {
   gap: 8px;
 }
 
-.lang-toggle:hover {
+.lang-toggle:hover,
+.theme-toggle:hover {
   background: var(--bg-secondary);
 }
 
 .lang-toggle.active {
   background: var(--blue-600);
   color: white;
+}
+
+.theme-icon {
+  font-size: 18px;
 }
 
 /* Background Colors */
