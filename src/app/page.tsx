@@ -15,7 +15,9 @@ export default function Home() {
     }
   }, [])
 
-  const t = translations[lang]
+  // Always use a valid language (default to 'en' during SSR)
+  const currentLang: Language = mounted ? lang : 'en'
+  const t = translations[currentLang]
 
   const handleLangToggle = () => {
     const newLang: Language = lang === 'en' ? 'fi' : 'en'
@@ -23,10 +25,6 @@ export default function Home() {
     if (mounted) {
       localStorage.setItem('language', newLang)
     }
-  }
-
-  if (!mounted) {
-    return null
   }
 
   return (
