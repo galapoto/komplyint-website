@@ -110,15 +110,16 @@ export default function Home() {
           muted
           loop
           playsInline
+          preload="auto"
           aria-hidden="true"
         >
           <source src="/media/hero.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
         </video>
         {/* Fallback image for reduced motion and mobile */}
-        <picture className="hero-image">
-          <source srcSet="/media/hero.webp" type="image/webp" />
+        <div className="hero-image">
           <img src="/media/hero.webp" alt="" aria-hidden="true" />
-        </picture>
+        </div>
         {/* Dark overlay for text contrast */}
         <div className="hero-overlay" aria-hidden="true"></div>
         <div className="container">
