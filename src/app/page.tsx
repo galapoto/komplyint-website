@@ -167,8 +167,13 @@ export default function Home() {
               alt="" 
               className="mid-page-image"
               onError={(e) => {
-                // Hide image if it doesn't exist
-                (e.target as HTMLImageElement).style.display = 'none';
+                // Hide image and wrapper if it doesn't exist
+                const target = e.target as HTMLImageElement
+                target.style.display = 'none'
+                const wrapper = target.closest('.mid-page-image-wrapper')
+                if (wrapper) {
+                  (wrapper as HTMLElement).style.display = 'none'
+                }
               }}
             />
           </div>
