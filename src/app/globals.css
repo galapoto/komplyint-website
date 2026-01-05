@@ -174,7 +174,7 @@ section {
   text-align: center;
   position: relative;
   overflow: hidden;
-  min-height: 600px;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -342,8 +342,9 @@ section {
 
 /* Process Flow */
 .process-flow-section {
-  padding: 12px 0;
+  padding: 12px 0 0 0;
   background: var(--bg-primary);
+  margin-bottom: 0;
 }
 
 .process-flow {
