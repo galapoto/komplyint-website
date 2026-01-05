@@ -342,7 +342,7 @@ section {
 
 /* Process Flow */
 .process-flow-section {
-  padding: 24px 0;
+  padding: 12px 0;
   background: var(--bg-primary);
 }
 
@@ -686,7 +686,7 @@ section {
   }
 
   .process-flow-section {
-    padding: 16px 0;
+    padding: 8px 0;
   }
 
   .process-flow {
