@@ -85,7 +85,7 @@ export default function Home() {
   }
 
   return (
-    <div style={{ width: '100%', overflowX: 'hidden', maxWidth: '100vw' }}>
+    <div style={{ width: '100%', overflowX: 'hidden' }}>
       {/* Header */}
       <header className="header">
         <div className="container">
