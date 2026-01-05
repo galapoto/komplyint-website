@@ -183,7 +183,6 @@ section {
   min-height: 100vh;
   max-height: 100vh;
   width: 100%;
-  max-width: 100vw;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -193,15 +192,16 @@ section {
   position: absolute;
   top: 0;
   left: 0;
-  right: 0;
-  bottom: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center center;
+  object-position: center;
   z-index: 0;
   display: block !important;
   pointer-events: none;
+  /* Prevent video from stretching */
+  min-width: 100%;
+  min-height: 100%;
 }
 
 .hero-image {
