@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupThemeToggle();
   setupLanguageToggle();
   setupContactForm();
+  setupRevealAnimations();
 });
 
 // Theme functions
@@ -21,7 +22,6 @@ function initTheme() {
   } else {
     document.documentElement.classList.remove('dark');
   }
-  updateThemeIcon();
 }
 
 function setupThemeToggle() {
@@ -32,13 +32,6 @@ function setupThemeToggle() {
       localStorage.setItem('komplyint-theme', isDarkMode ? 'dark' : 'light');
       initTheme();
     });
-  }
-}
-
-function updateThemeIcon() {
-  const icon = document.querySelector('.theme-icon');
-  if (icon) {
-    icon.textContent = isDarkMode ? '☀️' : '🌙';
   }
 }
 
@@ -127,6 +120,31 @@ function updateLanguage() {
   });
 }
 
+function setupRevealAnimations() {
+  const elements = Array.from(document.querySelectorAll('.reveal-on-scroll'));
+  if (elements.length === 0) return;
+
+  const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (prefersReducedMotion) {
+    elements.forEach((element) => element.classList.add('is-visible'));
+    return;
+  }
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    },
+    { threshold: 0.2 }
+  );
+
+  elements.forEach((element) => observer.observe(element));
+}
+
 function getNestedValue(obj, path) {
   return path.split('.').reduce((current, key) => current?.[key], obj);
 }
@@ -198,4 +216,3 @@ function setupContactForm() {
     }
   });
 }
-

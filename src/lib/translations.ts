@@ -142,3 +142,4 @@ export const translations = {
 export type Language = 'en' | 'fi';
 export type Translations = typeof translations.en;
 
+

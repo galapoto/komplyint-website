@@ -6,6 +6,17 @@
   <meta name="description" content="KOMPLYINT OY - Compliance readiness support for organizations">
   <title>KOMPLYINT OY — Compliance readiness, clearly and responsibly</title>
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <script>
+    (function() {
+      try {
+        var storedTheme = localStorage.getItem('komplyint-theme');
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (storedTheme === 'dark' || (!storedTheme && prefersDark)) {
+          document.documentElement.classList.add('dark');
+        }
+      } catch (e) {}
+    })();
+  </script>
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -23,7 +34,8 @@
             <span class="lang-fi">FI</span>
           </button>
           <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-            <span class="theme-icon">🌙</span>
+            <span class="theme-icon theme-icon-moon">🌙</span>
+            <span class="theme-icon theme-icon-sun">☀️</span>
           </button>
         </div>
       </div>
@@ -32,8 +44,23 @@
 
   <!-- Hero Section -->
   <section class="hero bg-green">
+    <div class="hero-media" aria-hidden="true">
+      <video class="hero-video" autoplay muted loop playsinline poster="/media/hero.webp">
+        <source src="/media/hero.mp4" type="video/mp4">
+      </video>
+      <img class="hero-image" src="/media/hero.webp" alt="">
+      <div class="hero-overlay"></div>
+    </div>
+    <svg class="hero-bg" aria-hidden="true" focusable="false" width="100%" height="100%" viewBox="0 0 800 400" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="currentColor" stroke-width="0.5" />
+        </pattern>
+      </defs>
+      <rect width="100%" height="100%" fill="url(#grid)" />
+    </svg>
     <div class="container">
-      <div class="hero-content">
+      <div class="hero-content hero-reveal">
         <h1 class="hero-title" data-i18n="hero.title">KOMPLYINT OY</h1>
         <h2 class="hero-subtitle" data-i18n="hero.subtitle">Compliance readiness, clearly and responsibly.</h2>
         <p class="hero-text" data-i18n="hero.text">
@@ -47,34 +74,75 @@
     </div>
   </section>
 
+  <section class="mid-media">
+    <div class="container">
+      <img class="section-image" src="/media/section.jpg" alt="" loading="lazy">
+    </div>
+  </section>
+
+  <section class="process-flow-section" aria-label="Internal clarity → Structure → External readiness">
+    <div class="container">
+      <div class="process-flow reveal-on-scroll">
+        <span class="process-item">Internal clarity</span>
+        <span class="process-arrow"> → </span>
+        <span class="process-item">Structure</span>
+        <span class="process-arrow"> → </span>
+        <span class="process-item">External readiness</span>
+      </div>
+    </div>
+  </section>
+
   <!-- What We Do Section -->
   <section class="services bg-blue">
     <div class="container">
       <h2 class="section-title" data-i18n="services.title">What we help with</h2>
-      <div class="cards">
-        <div class="card bg-green-card">
-          <h3 class="card-title" data-i18n="services.card1.title">Compliance readiness</h3>
-          <p class="card-text" data-i18n="services.card1.text">
-            We support organizations in understanding their current situation and preparing internally for upcoming compliance requirements.
-          </p>
+      <div class="services-layout">
+        <div class="service-row">
+          <div class="service-visual reveal-on-scroll" aria-hidden="true">
+            <svg class="visual-graphic" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <rect x="24" y="28" width="180" height="120" rx="12" fill="currentColor" opacity="0.12" />
+              <rect x="72" y="70" width="240" height="120" rx="12" fill="currentColor" opacity="0.08" />
+              <rect x="140" y="40" width="170" height="60" rx="10" fill="currentColor" opacity="0.1" />
+            </svg>
+          </div>
+          <div class="cards">
+            <div class="card bg-green-card reveal-on-scroll">
+              <h3 class="card-title" data-i18n="services.card1.title">Compliance readiness</h3>
+              <p class="card-text" data-i18n="services.card1.text">
+                We support organizations in understanding their current situation and preparing internally for upcoming compliance requirements.
+              </p>
+            </div>
+            <div class="card bg-blue-card reveal-on-scroll">
+              <h3 class="card-title" data-i18n="services.card2.title">Documentation and structure preparation</h3>
+              <p class="card-text" data-i18n="services.card2.text">
+                We assist with organizing internal documentation, records, and processes so they are clearer, more consistent, and easier to review by external parties.
+              </p>
+            </div>
+          </div>
         </div>
-        <div class="card bg-blue-card">
-          <h3 class="card-title" data-i18n="services.card2.title">Documentation and structure preparation</h3>
-          <p class="card-text" data-i18n="services.card2.text">
-            We assist with organizing internal documentation, records, and processes so they are clearer, more consistent, and easier to review by external parties.
-          </p>
-        </div>
-        <div class="card bg-green-card">
-          <h3 class="card-title" data-i18n="services.card3.title">Risk and gap awareness</h3>
-          <p class="card-text" data-i18n="services.card3.text">
-            We help identify areas that may require attention before formal audits, regulatory reviews, or legal assessments.
-          </p>
-        </div>
-        <div class="card bg-blue-card">
-          <h3 class="card-title" data-i18n="services.card4.title">Process orientation</h3>
-          <p class="card-text" data-i18n="services.card4.text">
-            We help teams understand compliance-related workflows and internal responsibilities, so preparation work is more effective and less disruptive.
-          </p>
+        <div class="service-row">
+          <div class="service-visual reveal-on-scroll" aria-hidden="true">
+            <svg class="visual-graphic" viewBox="0 0 360 220" xmlns="http://www.w3.org/2000/svg">
+              <rect x="20" y="40" width="140" height="90" rx="12" fill="currentColor" opacity="0.1" />
+              <rect x="190" y="30" width="150" height="70" rx="12" fill="currentColor" opacity="0.08" />
+              <rect x="90" y="120" width="210" height="80" rx="12" fill="currentColor" opacity="0.12" />
+              <rect x="150" y="76" width="120" height="20" rx="10" fill="currentColor" opacity="0.06" />
+            </svg>
+          </div>
+          <div class="cards">
+            <div class="card bg-green-card reveal-on-scroll">
+              <h3 class="card-title" data-i18n="services.card3.title">Risk and gap awareness</h3>
+              <p class="card-text" data-i18n="services.card3.text">
+                We help identify areas that may require attention before formal audits, regulatory reviews, or legal assessments.
+              </p>
+            </div>
+            <div class="card bg-blue-card reveal-on-scroll">
+              <h3 class="card-title" data-i18n="services.card4.title">Process orientation</h3>
+              <p class="card-text" data-i18n="services.card4.text">
+                We help teams understand compliance-related workflows and internal responsibilities, so preparation work is more effective and less disruptive.
+              </p>
+            </div>
+          </div>
         </div>
       </div>
       <blockquote class="services-disclaimer" data-i18n-html="services.disclaimer">
@@ -100,6 +168,13 @@
   <section class="approach bg-green">
     <div class="container">
       <h2 class="section-title" data-i18n="approach.title">Our approach</h2>
+      <div class="approach-visual" aria-hidden="true">
+        <svg class="visual-graphic" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="40" width="160" height="40" rx="6" opacity="0.08" fill="currentColor" />
+          <rect x="220" y="40" width="160" height="40" rx="6" opacity="0.12" fill="currentColor" />
+          <rect x="420" y="40" width="160" height="40" rx="6" opacity="0.08" fill="currentColor" />
+        </svg>
+      </div>
       <ul class="approach-list">
         <li data-i18n="approach.item1">We focus on preparation, clarity, and structure</li>
         <li data-i18n="approach.item2">We work alongside internal teams</li>
@@ -154,6 +229,7 @@
   </section>
 
   <!-- Footer -->
+  <div class="footer-divider" aria-hidden="true"></div>
   <footer class="footer">
     <div class="container">
       <p class="footer-text" data-i18n-html="footer.text1">
