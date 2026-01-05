@@ -195,13 +195,10 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center;
+  object-position: center center;
   z-index: 0;
   display: block !important;
   pointer-events: none;
-  /* Prevent video from stretching */
-  min-width: 100%;
-  min-height: 100%;
 }
 
 .hero-image {
