@@ -51,6 +51,19 @@ export default function Home() {
     return () => observer.disconnect()
   }, [])
 
+  // Ensure video plays (handle browser autoplay restrictions)
+  useEffect(() => {
+    if (mounted) {
+      const video = document.querySelector('.hero-video') as HTMLVideoElement
+      if (video) {
+        video.play().catch((err) => {
+          // Autoplay was prevented, but video will show once user interacts
+          console.log('Video autoplay prevented:', err)
+        })
+      }
+    }
+  }, [mounted])
+
   // Always use a valid language (default to 'en' during SSR)
   const currentLang: Language = mounted ? lang : 'en'
   const t = translations[currentLang]
