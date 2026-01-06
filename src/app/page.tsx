@@ -1,19 +1,22 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { usePathname, useRouter } from 'next/navigation'
 import { translations, type Language } from '@/lib/translations'
 
 export default function Home() {
-  const [lang, setLang] = useState<Language>('en')
+  const pathname = usePathname()
+  const router = useRouter()
+  // Default to Finnish for root route, English for /en
+  const [lang, setLang] = useState<Language>(pathname === '/en' ? 'en' : 'fi')
   const [theme, setTheme] = useState<'light' | 'dark'>('light')
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-    const saved = localStorage.getItem('language') as Language | null
-    if (saved === 'en' || saved === 'fi') {
-      setLang(saved)
-    }
+    // Determine language from pathname
+    const pathLang: Language = pathname === '/en' ? 'en' : 'fi'
+    setLang(pathLang)
     
     const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
     if (savedTheme === 'dark' || savedTheme === 'light') {
@@ -23,7 +26,7 @@ export default function Home() {
       const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
       setTheme(prefersDark ? 'dark' : 'light')
     }
-  }, [])
+  }, [pathname])
 
   useEffect(() => {
     if (mounted) {
@@ -64,15 +67,16 @@ export default function Home() {
     }
   }, [mounted])
 
-  // Always use a valid language (default to 'en' during SSR)
-  const currentLang: Language = mounted ? lang : 'en'
+  // Always use a valid language (default to 'fi' during SSR for root, 'en' for /en)
+  const currentLang: Language = mounted ? lang : (pathname === '/en' ? 'en' : 'fi')
   const t = translations[currentLang]
 
   const handleLangToggle = () => {
-    const newLang: Language = lang === 'en' ? 'fi' : 'en'
-    setLang(newLang)
-    if (mounted) {
-      localStorage.setItem('language', newLang)
+    // Navigate to the other language route
+    if (pathname === '/en') {
+      router.push('/')
+    } else {
+      router.push('/en')
     }
   }
 
@@ -90,7 +94,7 @@ export default function Home() {
       <header className="header">
         <div className="container">
           <div className="header-content">
-            <a href="#" className="logo">
+            <a href="/" className="logo">
               <img src="/logo.svg" alt="KOMPLYINT OY" className="logo-img" />
             </a>
             <div className="header-controls">
@@ -99,7 +103,7 @@ export default function Home() {
                 className={`lang-toggle ${currentLang === 'fi' ? 'active' : ''}`}
                 aria-label="Switch language"
               >
-                <span>{currentLang.toUpperCase()}</span>
+                <span>{currentLang === 'fi' ? 'FI' : 'EN'}</span>
               </button>
               <button
                 onClick={handleThemeToggle}

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import './globals.css'
+import LangSetter from './LangSetter'
 
 export const metadata: Metadata = {
   title: 'Komplyint Oy',
@@ -15,8 +16,11 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body>{children}</body>
+    <html lang="fi" suppressHydrationWarning>
+      <body>
+        <LangSetter />
+        {children}
+      </body>
     </html>
   )
 }
